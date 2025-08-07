@@ -1,12 +1,16 @@
 import BookCard from "../components/BookCard"
 import { useState, useEffect } from "react";
-import {  listBooks } from "../services/api"  ;
+import ListBooks  from "../services/api"  ;
 import "../css/Home.css"
+import { Row } from "react-bootstrap";
+
+ 
 
 function Home() {
     const [searchQuery, setSearchQuery] = useState('');
     const [error, setError] = useState('');
     const [loading, setloading] = useState(true);
+    {/*}
     const [books, setBooks] = useState([{
         Title:'', 
         Author: '',
@@ -14,8 +18,11 @@ function Home() {
         PublishDate:'',
         id: ''
         },
-    ])
-       
+    ]) */}
+
+  
+                
+
        {/*} useEffect(()  => {
             const loadPopularBooks = async () => {
                 try {
@@ -77,16 +84,34 @@ function Home() {
                 ))}. 
                  </div> 
             )}*/}
+
        return (   
+        <div>
            
-             listBooks(),
-        
+            
+            <ListBooks/>
+            {/*}
                 <div className = "books-grid">
                    {books.map((books) => (
-                      <BookCard books={books} key={books.Title} /> 
+                    
+                <div className="book-card" key={books.id}>
+                    <div className="book-cover">
+                        <img src={'books.CoverImage'} alt={books.Title} />
+                        <div className = "book.overlay"> 
+                        </div>
+                        <BookCard books={books} key={books.Title} /> 
+                        <div className = "book-info">
+                            <h3> {books.Title}</h3>
+                            <p>{books.PublishDate}</p>
+                        </div>
+                    </div>
+                 </div>
+                    
+                      
                 ))}
                  </div> 
-
+            */}
+</div>
     )}
 
 

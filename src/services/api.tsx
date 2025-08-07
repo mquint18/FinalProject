@@ -1,4 +1,5 @@
-
+import { useState, useEffect } from "react";
+import BookCard from "../components/BookCard";
 
 const API_KEY = ""
 
@@ -8,7 +9,7 @@ const API_KEY = ""
 
 
 
-{/*}
+/*}
 
 export const getPopularBooks = async () => {
     const response = await fetch(`${BASE_URL} `);
@@ -33,9 +34,22 @@ export const searchBooks = async (searchQuery:any) => {
        
 
 };
-*/}
 
-export const listBooks = async () => {
+}*/
+
+
+ export default function ListBooks()  {
+
+    const [books, setBooks] = useState([{
+        Title:'', 
+        Author: '',
+        CoverImage: <img src=" " alt="" />,
+        PublishDate:'',
+        id: ''
+        },
+    ]) 
+
+  async () => {
 
 
 fetch('https://6861ae9396f0cc4e34b7397c.mockapi.io/api/mq/NewBookList1', {
@@ -45,16 +59,34 @@ fetch('https://6861ae9396f0cc4e34b7397c.mockapi.io/api/mq/NewBookList1', {
   if (res.ok) {
       return res.json();
   }
-  // handle error
 }).then(books => {
-    
-    console.log(books)
-    return books;
-  // Do something with the list of tasks
+    books;
+    console.log(books);
+   
 }).catch(error => {
     console.log(error)
   // handle error
 })
-    
-
-}
+}  
+return (
+     <div className = "books-grid">
+                   {books.map((books) => (
+                    
+                <div className="book-card" key={books.id}>
+                    <div className="book-cover">
+                        <img src={'books.CoverImage'} alt={books.Title} />
+                        <div className = "book.overlay"> 
+                        </div>
+                        <BookCard books={books} key={books.Title} /> 
+                        <div className = "book-info">
+                            <h3> {books.Title}</h3>
+                            <p>{books.PublishDate}</p>
+                        </div>
+                    </div>
+                 </div>
+                    
+                      
+                ))}
+                 </div> 
+)
+ }
