@@ -1,4 +1,4 @@
-import "../css/BookCard.css"
+//import "../css/BookCard.css"
 
 function BookCard({books}: {books:any}) {
 
@@ -9,7 +9,7 @@ function BookCard({books}: {books:any}) {
 return (
 <div className="book-card" >
     <div className="book-cover">
-        <img src={books.url} alt={books.title} />
+        <img src={books.coverImg} alt={books.title} />
         <div className = "book.overlay">
             <button className="favorite.btn" onClick={onFavoriteClick} >
                 ☆
@@ -18,7 +18,8 @@ return (
     </div>
     <div className = "book-info">
         <h3> {books.title}</h3>
-        <p>{books.publishDate}</p>
+        <h4> {books.authName}</h4>
+        <p>{books.pubDate}</p>
     </div>
 
 </div>

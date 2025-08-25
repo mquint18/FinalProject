@@ -1,4 +1,4 @@
-const BASE_URL = 'https://6861ae9396f0cc4e34b7397c.mockapi.io/api/mq/books';
+export const BASE_URL = 'https://6861ae9396f0cc4e34b7397c.mockapi.io/api/mq/books';
 
 export const getFavoriteBooks = async () => {
     const response = await fetch(`${BASE_URL}`, {
@@ -7,7 +7,7 @@ export const getFavoriteBooks = async () => {
 
     const data = await response.json();
     console.log({data})
-    return data.results;
+    return data;
 
 };
 
@@ -19,6 +19,7 @@ export const searchBooks = async (query) => {
     );
 
     const data = await response.json();
+    console.log(`The data is ${data}`)
     return data.results;
 };
 

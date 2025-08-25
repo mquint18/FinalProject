@@ -44,7 +44,7 @@
   padding: 1rem;
 }
 
-.book-card:hover .movie-overlay {
+.book-card:hover .book-overlay {
   opacity: 1;
 }
 
@@ -107,9 +107,13 @@
   margin-top: auto;
 }
 
-@media (max-width: 768px) {
-  .movie-card {
+@media (max-width: 400px) {
+  .book-card {
     font-size: 0.9rem;
+  }
+
+  .book-cover {
+    
   }
 
   .book-info {
